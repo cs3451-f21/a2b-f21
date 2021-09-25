@@ -2,7 +2,7 @@
 
 This repository implements the starting point of a three.js program in TypeScript.
 
-## Due: Friday October 1st, 8:00am
+## Due: Friday October 15th, 8:00am
 
 ## Rubric
 
@@ -22,13 +22,13 @@ The goal of this project is to learn how to use transformations and camera posit
 
 Now that you have created an object for Project A2a, you should have some ideas of how you wish to incorporate it into a fully animated scene. The most interesting animated scenes, no matter how short, seek to tell a story. Introduce your character, have your character carry out an action, and then resolve the scene.
 
-You will most likely want to create more objects to populate your scene, but these new objects can be more simple than Project A2a's object. As with A2a, you should create the objects you will need in `initializeScene()`. Your main goal for this assignment will be to make one or more of the objects in the scene move, and to also move the virtual camera through the scene. You will want to use the “time” variable passed into `updateScene(time)` to help control motion of your objects (this value measures time in milliseconds, from some arbitrary starting point).
+You will most likely want to create more objects to populate your scene, but these new objects can be more simple than Project A2a's object. As with A2a, you should create the objects you will need in `initializeScene()`. Your main goal for this assignment will be to make one or more of the objects in the scene move, and to also move the virtual camera through the scene. You will want to use the “time” variable passed into `updateScene(time)` to help control motion of your objects (this value measures time in milliseconds, from some arbitrary starting point).  (Note: in common.js, we get the time of the first render callback, and set `this.startTime` to it, so that you can use `time - this.startTime` in `updateScene(time)` as the time since the program started.)
 
 Below is a checklist of elements that you must include in your scene:
 
 ### Camera Motion
 
-We have removed the camera `OrbitControl` from the sample code. You should move the camera smoothly through the scene, rather than keeping it in one place. The scene is set up with a PerspectiveCamera stored in `this.camera`. Change the camera's position by varying position and orientation of the object.  Just rotating or moving the entire scene does not count as moving the camera.
+We have removed the camera `OrbitControl` from the sample code. You should move the camera smoothly through the scene, rather than keeping it in one place. The scene is set up with a PerspectiveCamera stored in `this.camera`. Change the camera's position by varying position and rotation of the PerspectiveCamera object.  Just rotating or moving the entire scene while leaving the camera stationary does not count as moving the camera.
 
 Please note that having the user press keys or move the mouse to control the camera does not count towards automatic motion of the camera. If you want to include user controls, have an automatic motion of the camera in the first part of the scene, before handing over controls to the user.
 

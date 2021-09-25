@@ -4,6 +4,9 @@ import * as THREE from 'three'
 export class DrawingCommon {
     private _boundHandleFrame: (t: DOMHighResTimeStamp) => any;
 
+    // convenience
+    startTime = -1
+
     // DOM items
     glCanvas = document.createElement('canvas')
 	glContext: WebGLRenderingContext;
@@ -95,6 +98,9 @@ export class DrawingCommon {
 	_handleFrame(t: DOMHighResTimeStamp){
 		const nextFrameRequest = window.requestAnimationFrame(this._boundHandleFrame)
 
+        if (this.startTime == -1) { 
+            this.startTime = t
+        }
         // Let the extending class update the scene before each render
 		this.updateScene(t)
 
