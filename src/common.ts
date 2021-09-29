@@ -52,6 +52,10 @@ export class DrawingCommon {
         this.camera.aspect = this.glCanvas.offsetWidth / this.glCanvas.offsetHeight;
         this.camera.updateProjectionMatrix();
 
+        // just ambient light
+		const ambientLight = new THREE.AmbientLight( 0x222222 );
+		this.scene.add( ambientLight );
+
 		// Give extending classes the opportunity to initially populate the scene
 		this.initializeScene()
 
@@ -60,10 +64,6 @@ export class DrawingCommon {
             this.camera.updateProjectionMatrix();
             this.renderer.setSize( this.el.offsetWidth, this.el.offsetHeight );
         });
-
-		// just ambient light
-		const ambientLight = new THREE.AmbientLight( 0x222222 );
-		this.scene.add( ambientLight );
 
         window.requestAnimationFrame(this._boundHandleFrame)
 	}
