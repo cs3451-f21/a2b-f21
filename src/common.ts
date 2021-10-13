@@ -1,6 +1,11 @@
 import * as THREE from 'three'
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+export interface MousePosition {
+    x: number;
+    y: number;
+}
+
 export class DrawingCommon {
     private _boundHandleFrame: (t: DOMHighResTimeStamp) => any;
 
@@ -74,7 +79,7 @@ export class DrawingCommon {
     // relative to the Window, but we want to specify draw coordinates
     // relative to the canvas DOM element  
     // see: http://www.jacklmoore.com/notes/mouse-position/
-    static offset(e: MouseEvent): ps.MousePosition {
+    static offset(e: MouseEvent): MousePosition {
         e = e || <MouseEvent> window.event;
 
         var target = <Element> (e.target || e.srcElement),
